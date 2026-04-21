@@ -173,9 +173,9 @@ git push -u origin main
 git pull origin main
 👉 Use this before starting work to avoid conflicts
 ********** Flow															Repeat cmd:	
-cd D:\Git_Project														cd D:\Git_Project
-git clone https://github.com/ShivamPandit1213/NaukriTest.git			fatal: destination path 'NaukriTest' already exists and is not an empty directory.
-cd NaukriTest															cd NaukriTest
+1. Go to your main workspace folder: cd D:\Git_Project														cd D:\Git_Project
+2. Clone the correct repository: git clone https://github.com/ShivamPandit1213/NaukriTest.git			fatal: destination path 'NaukriTest' already exists and is not an empty directory.
+3. Move inside the new project folder: cd NaukriTest															cd NaukriTest
 
 1. Go into your existing folder: cd D:\path\to\your\existing\folder
 2. Sever the tie to the false repo and link the correct one: git remote set-url origin https://github.com/ShivamPandit1213/NaukriTest.git
