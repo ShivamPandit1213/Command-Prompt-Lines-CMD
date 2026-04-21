@@ -176,6 +176,12 @@ git pull origin main
 cd D:\Git_Project														cd D:\Git_Project
 git clone https://github.com/ShivamPandit1213/NaukriTest.git			fatal: destination path 'NaukriTest' already exists and is not an empty directory.
 cd NaukriTest															cd NaukriTest
+
+1. Go into your existing folder: cd D:\path\to\your\existing\folder
+2. Sever the tie to the false repo and link the correct one: git remote set-url origin https://github.com/ShivamPandit1213/NaukriTest.git
+3. Verify the fix: git remote -v
+4. Pull the correct code down: git pull origin master
+	
 🔁 Daily Workflow (Very Important):
 git add .
 git commit -m "Updated chatbot logic"
