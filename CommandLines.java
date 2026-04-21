@@ -131,24 +131,24 @@ To satrt server - 			appium
 For app web version - 		appium --allow-cors
 To clean aommand prompt - 	cls
 ______________________________________________________________________________________
-Git	-	Workflow (Add → Commit → Push)															Git - Flow
-	Install cmd: winget install --id Git.Git -e --source winget									cd ~/onedrive/javaselenium
-	Git version: git --version																	rm -rf .git     # safe
-	SetName: C:\Users\shiva>	git config --global user.name "Shivam Parashar"						cd jobs
-	SetEmail: C:\Users\shiva>	git config --global user.email "shivamparashar1213@gmail.com"		git init
-	one folder back[Git]: cd ..																	git add .
-																								git commit -m "Initial commit"
-	cd onedriver -> cd javaselenium -> cd ProjectName											git commit -m "Initial commit - jobs project"
-	Check if .git exists: dir /a  /  dir														If using Eclipse then edit .gitignore file and add
-	if .git not exist then run command in cmd: git init												# TestNG Reports
-																									test-output/
-	warnings: test-output/, *.html, *.xml, *.js														# Driver files
-	in Project Update .gitignore: test-output/														*.log
-								  *.html															# OS files
-								  *.xml																.DS_Store
-								  *.js																Thumbs.db
-																									*.exe
-	Remove this warning: git config --global core.autocrlf true										# Logs															
+Git	-	Workflow (Add → Commit → Push)															
+	Install cmd: winget install --id Git.Git -e --source winget									
+	Git version: git --version																	
+	SetName: C:\Users\shiva>	git config --global user.name "Shivam Parashar"						
+	SetEmail: C:\Users\shiva>	git config --global user.email "shivamparashar1213@gmail.com"	
+	one folder back[Git]: cd ..																	
+																								
+	cd onedriver -> cd javaselenium -> cd ProjectName											
+	Check if .git exists: dir /a  /  dir														
+	if .git not exist then run command in cmd: git init												
+																									
+	warnings: test-output/, *.html, *.xml, *.js														
+	in Project Update .gitignore: test-output/														
+								  *.html															
+								  *.xml																
+								  *.js																
+																									
+	Remove this warning: git config --global core.autocrlf true																							
 																									
 1️⃣ Initialize Git (first time only)
 git init
@@ -172,7 +172,10 @@ git push -u origin main
 🔄 Pull (Get Latest Code from GitHub)
 git pull origin main
 👉 Use this before starting work to avoid conflicts
-
+********** Flow															Repeat cmd:	
+cd D:\Git_Project														cd D:\Git_Project
+git clone https://github.com/ShivamPandit1213/NaukriTest.git			fatal: destination path 'NaukriTest' already exists and is not an empty directory.
+cd NaukriTest															cd NaukriTest
 🔁 Daily Workflow (Very Important):
 git add .
 git commit -m "Updated chatbot logic"
