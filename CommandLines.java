@@ -155,21 +155,41 @@ git init
 2️⃣ Add files to staging
 git add .
 👉 Adds all files (your Selenium project)
-
 OR specific file:
 git add ChatBot.java
-	
 3️⃣ Commit changes
 git commit -m "Added chatbot automation logic"
 👉 This saves snapshot locally
-
 4️⃣ Connect to GitHub repo (one-time setup)
 git remote add origin https://github.com/username/repo-name.git
-5️⃣ Push code to GitHub
-git push -u origin main
-👉 Sends your code to GitHub 🚀
 
-🔄 Pull (Get Latest Code from GitHub)
+5️⃣ Push code to GitHub *****************
+Project Location: cd /d D:\Git_Project\NaukriJob_Apr22
+# This forces your local branch to be renamed to 'main'
+git branch -M main
+# This pushes the code and links your local 'main' to GitHub's 'main'
+git push -u origin main
+********* Flow:
+# 1. Navigate into your new, clean folder
+cd /d D:\Git_Project\Naukri_Auto_Final
+# 2. Turn this clean folder into a fresh Git repository
+git init
+# 3. Add your pasted files
+git add .
+# 4. Create your first commit
+git commit -m "Initial commit: Naukri automation project"
+# 5. Set the branch to main
+git branch -M main
+# 6. Link it to the CORRECT GitHub repository
+git remote add origin https://github.com/ShivamPandit1213/NaukriJob_Apr22.git
+# 7. Push the code!
+git push -u origin main
+--------------------------------------
+	Step 1: Update the remote URL: git remote set-url origin https://github.com/ShivamPandit1213/NaukriJob_Apr22.git
+	Step 2: Verify the change (Optional but recommended): git remote -v
+	Step 3: Push your code: git push -u origin main
+============================================================================================================================================
+🔄 Pull (Get Latest Code from GitHub) *****************
 git pull origin main
 👉 Use this before starting work to avoid conflicts
 ********** Flow																						Repeat cmd:	
