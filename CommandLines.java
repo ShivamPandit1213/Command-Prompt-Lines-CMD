@@ -114,7 +114,7 @@ ________________________________________________________________________________
 Commands - Jenkins
 
 Jenkins - Web
-1. Navigate to: C:\Users\shiva\OneDrive\Jenkins
+1. Navigate to: cd C:\Users\shiva\OneDrive\Jenkins
 2. Execute: java -jar jenkins.war
 3. Navigate to: http://localhost:8080/login?from=%2F
 4. Enter Secrets-Key: 6fa5fc0d50824f98877f13056bd0f36a
