@@ -117,7 +117,35 @@ Run the Project
 		mvn clean compile
 		mvn exec:java -Dexec.mainClass="com.example.app.App"
 ______________________________________________________________________________________
-Appium
+Appium:
+Install:
+1.	Download Node.js - https://nodejs.org/en
+2.	Download Android Studio
+Environment Variables ->
+	
+your-appium-project/
+├── pom.xml                 // Your Maven manifest. This downloads the Appium Java Client, TestNG, and any reporting tools.
+├── testng.xml              // Your test execution suite. You can define parameters here to run tests on different devices (Android vs. iOS).
+│
+├── src/main/java/          // Core framework code and Page Objects
+│   ├── base/               
+│   │   └── BaseTest.java   // The most critical file. It sets up the Appium Server connection, defines "Desired Capabilities" (device info), and initializes the AndroidDriver/IOSDriver.
+│   │
+│   ├── pages/              
+│   │   └── LoginPage.java  // Page Object Model classes. This contains mobile locators (e.g., @AndroidFindBy) and methods to interact with the screen.
+│   │
+│   └── utils/              
+│       └── TestUtils.java  // Helper methods for things like scrolling, swiping, or reading configuration files.
+│
+├── src/test/java/          // Your actual test scripts
+│   └── tests/              
+│       └── LoginTest.java  // Test files containing TestNG @Test annotations. They extend BaseTest and call methods from the pages directory.
+│
+└── src/test/resources/     // Static test data and apps
+    ├── apps/               
+    │   └── my-app.apk      // The actual application file you are testing (.apk for Android, .app or .ipa for iOS).
+    └── config.properties   // A file to store externalized data like deviceName, platformVersion, and Appium server URL so you don't hardcode them.
+	
                           abd.exe devices for Command line
                           DesiredCapabilities dc = new DesiredCapabilities();                            Open Appium and Coonect
                           dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, ""Appium"");            For Verify : abd.exe devices
