@@ -122,7 +122,12 @@ Install:
 1.	Download Node.js - https://nodejs.org/en
 2.	Download Android Studio
 Environment Variables ->
-	
+	ANDROID_HOME[Hidden folder]: C:\Users\shiva\AppData\Local\Android\Sdk
+	add in path: %ANDROID_HOME%\platform-tools, %ANDROID_HOME%\emulator, %ANDROID_HOME%\cmdline-tools\latest\bin, %ANDROID_HOME%\tools\bin
+Verify the Installation: C:\Users\shiva>node -v [v25.9.0]
+Verify the Installation: C:\Users\shiva>npm -v [11.12.1]
+Install Appium: C:\Users\shiva>npm install -g appium
+Install the UiAutomator2 Driver: appium driver install uiautomator2
 your-appium-project/
 ├── pom.xml                 // Your Maven manifest. This downloads the Appium Java Client, TestNG, and any reporting tools.
 ├── testng.xml              // Your test execution suite. You can define parameters here to run tests on different devices (Android vs. iOS).
