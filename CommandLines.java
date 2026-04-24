@@ -7,7 +7,6 @@ cls  		To clear Command Prompt
 C:			To go back to C drive
 	
 change location or set path for apps ex. git: cd C:\Users\shiva\OneDrive\JavaSelenium
-	
 Give folder permission - change access to Administrator[Extenal Drive] -> Run Command Prompt as Administrator
 	takeown /F "F:\WindowsApps" /R /D Y
 	icacls "F:\WindowsApps" /grant administrators:F /T
@@ -20,12 +19,7 @@ icacls "E:\Applications" /grant administrators:F /T
 	Explanation:
 takeown — makes the Administrators group the owner of all files and subfolders inside E:\Applications
 icacls — grants that group Full Control
-/R and /T — apply changes recursively through all subfolders
-______________________________________________________________________________________
-Cypress Setup														Playwright
-	To Install: npm install cypress --save-dev						To Install: npm init playwright@latest -> Y -> tests -> Enter -> Enter
-	To Open Cypress: npx cypress open
-	
+/R and /T — apply changes recursively through all subfolders	
 ______________________________________________________________________________________
 For	                 Commands	                                     Work
 	        	    driverquery	                                    Lists All Installed Drivers	
@@ -45,18 +39,62 @@ Variable Value:		C:\Program Files\Java\jdk-17
 System variables -> Path -> Edit -> New: %JAVA_HOME%\bin
 ______________________________________________________________________________________
 Maven Commands
-	my-project
-	 ├── pom.xml
-	 └── src
-	     ├── main
-	     │   ├── java
-	     │   │   └── com/example/app
-	     │   │        ├── App.java
-	     │   │        ├── HelloService.java
-	     │   │        └── ConfigReader.java
-	     │   └── resources
-	     │        └── config.properties
-	     └── test
+project-folder/
+│
+├── src/
+│   ├── main/                                 # Main application code
+│   │   ├── java/                             # Java source code
+│   │   │   └── com/example/app/
+│   │   │       ├── pages/                    # Page Object Model classes
+│   │   │       │   ├── LoginPage.java        # Login page locators & methods
+│   │   │       │   ├── DashboardPage.java    # Dashboard page methods
+│   │   │       │   └── CheckoutPage.java     # Checkout page methods
+│   │   │
+│   │   │       ├── utils/                    # Utility/helper classes
+│   │   │       │   ├── ConfigReader.java     # Reads config.properties
+│   │   │       │   ├── DriverFactory.java    # WebDriver initialization
+│   │   │       │   └── TestDataGenerator.java# Dynamic/random data generation
+│   │   │
+│   │   │       ├── base/                     # Base classes
+│   │   │       │   └── BaseTest.java         # Common setup/teardown methods
+│   │   │
+│   │   │       └── listeners/                # Test listeners
+│   │   │           └── TestListener.java     # Screenshot/logging/report hooks
+│   │   │
+│   │   └── resources/                        # Non-Java files used by main code
+│   │       ├── config.properties             # Environment/configuration values
+│   │       ├── testdata/                     # Static test data files
+│   │       └── log4j2.xml                    # Logging configuration
+│   │
+│   ├── test/                                 # Test code
+│   │   ├── java/                             # Test classes
+│   │   │   └── com/example/tests/
+│   │   │       ├── login/                    # Login-related test classes
+│   │   │       │   └── LoginTest.java
+│   │   │       ├── dashboard/
+│   │   │       │   └── DashboardTest.java
+│   │   │       └── checkout/
+│   │   │           └── CheckoutTest.java
+│   │   │
+│   │   │       └── stepdefinitions/          # If using Cucumber
+│   │   │           └── LoginSteps.java
+│   │   │
+│   │   └── resources/                        # Test resources
+│   │       ├── features/                     # Cucumber feature files
+│   │       ├── testng.xml                   # TestNG suite file
+│   │       └── extent-config.xml             # Extent Report config
+│
+├── target/                                   # Auto-generated build/output folder
+│   ├── surefire-reports/                     # Test execution reports
+│   ├── screenshots/                          # Failure screenshots
+│   └── logs/                                 # Execution logs
+│
+├── pom.xml                                   # Maven Project Object Model file
+│                                              # Dependencies, plugins, build config
+│
+├── .gitignore                                # Ignore target/, logs, reports
+│
+└── README.md                                 # Project documentation/setup guide
 Install: apache-maven-3.9.11-bin
 	Environment Variables -> System variables -> New:
 	Variable Name:		MAVEN_HOME
@@ -131,7 +169,58 @@ To satrt server - 			appium
 For app web version - 		appium --allow-cors
 To clean aommand prompt - 	cls
 ______________________________________________________________________________________
-Git	-	Workflow (Add → Commit → Push)															
+Git:
+project-folder/
+│
+├── .git/                                 # Hidden folder created by Git
+│   │                                     # Stores commit history, branches, config
+│
+├── src/                                  # Main source code folder
+│   ├── main/                             # Main application/framework code
+│   ├── test/                             # Test scripts / automation code
+│
+├── docs/                                 # Project documentation
+│   ├── API.md                            # API documentation
+│   ├── SETUP.md                          # Installation/setup guide
+│   └── CONTRIBUTING.md                   # Contribution guidelines
+│
+├── config/                               # Configuration files
+│   ├── dev.config                        # Development environment config
+│   ├── qa.config                         # QA environment config
+│   └── prod.config                       # Production config
+│
+├── scripts/                              # Utility scripts
+│   ├── build.sh                          # Build script
+│   ├── deploy.sh                         # Deployment script
+│   └── run-tests.sh                      # Execute tests
+│
+├── reports/                              # Test/build reports
+│   ├── html-report/                      # HTML reports
+│   └── logs/                             # Execution logs
+│
+├── .gitignore                            # Ignore files/folders from commit
+│                                          # Example: node_modules/, target/, logs/
+│
+├── .gitattributes                        # Defines line endings / merge strategy
+│
+├── README.md                             # Project overview/documentation
+│
+├── LICENSE                               # License information
+│
+└── Jenkinsfile / .github/ / .gitlab-ci.yml # CI/CD pipeline definitions
+
+.git/
+│
+├── HEAD                                  # Points to current branch
+├── config                                # Local Git repository config
+├── hooks/                                # Git hooks (pre-commit, pre-push etc.)
+├── objects/                              # Stores commits, blobs, trees
+├── refs/
+│   ├── heads/                            # Local branches
+│   ├── remotes/                          # Remote tracking branches
+│   └── tags/                             # Tags/releases
+	
+Workflow (Add → Commit → Push)															
 	Install cmd: winget install --id Git.Git -e --source winget									
 	Git version: git --version																	
 	SetName: C:\Users\shiva>	git config --global user.name "Shivam Parashar"						
@@ -230,5 +319,175 @@ i- Launch chrome://flags/#allow-insecure-localhost on Chrome
 ii- Look for the option "Allow invalid certificates for resources loaded from localhost." and enable the option.
 iii- Relaunch Chrome
 iv- Access BQ Platform and try Recording/Local Execution.
-
-
+=========================================================================================================
+Cypress:
+project-folder/
+│
+├── cypress/
+│   │
+│   ├── e2e/                          # Contains all test/spec files
+│   │   ├── login/
+│   │   │   └── login.cy.js           # Login-related test cases
+│   │   ├── dashboard/
+│   │   │   └── dashboard.cy.js       # Dashboard-related test cases
+│   │   └── checkout/
+│   │       └── checkout.cy.js        # Checkout/payment-related test cases
+│   │
+│   ├── fixtures/                     # Stores static test data / mock data
+│   │   ├── users.json                # User credentials or profile data
+│   │   ├── products.json             # Product-related test data
+│   │   └── apiResponse.json          # Mock API responses
+│   │
+│   ├── support/                      # Reusable code / common utilities
+│   │   │
+│   │   ├── commands/                 # Custom Cypress commands
+│   │   │   ├── loginCommands.js      # Reusable login commands
+│   │   │   ├── apiCommands.js        # API request helper commands
+│   │   │   └── uiCommands.js         # Common UI actions
+│   │   │
+│   │   ├── pageObjects/              # Page Object Model files
+│   │   │   ├── LoginPage.js          # Locators & methods for Login page
+│   │   │   ├── DashboardPage.js      # Dashboard page methods
+│   │   │   └── CheckoutPage.js       # Checkout page methods
+│   │   │
+│   │   ├── utils/                    # Helper functions / reusable methods
+│   │   │   ├── constants.js          # Common constants / URLs
+│   │   │   ├── helpers.js            # Generic helper functions
+│   │   │   └── testDataGenerator.js  # Dynamic/random test data creation
+│   │   │
+│   │   ├── e2e.js                    # Runs before every spec file
+│   │   │                             # Import commands and global hooks here
+│   │   │
+│   │   └── component.js              # Used for component testing setup
+│   │
+│   ├── downloads/                    # Downloaded files during test execution
+│   ├── screenshots/                  # Auto screenshots for failed tests
+│   └── videos/                       # Video recording of test execution
+│
+├── cypress.config.js                 # Cypress configuration file
+│                                     # Base URL, timeouts, env variables etc.
+│
+├── package.json                      # Project dependencies & npm scripts
+│
+├── node_modules/                     # Installed npm packages
+│
+├── reports/                          # Stores generated test reports
+│   ├── mochawesome-report/           # Mochawesome HTML reports
+│   └── junit/                        # JUnit XML reports for Jenkins
+│
+├── .gitignore                        # Ignore node_modules, reports, videos etc.
+│
+└── README.md                         # Project documentation / setup guide
+______________________________________________________________________________________
+Cypress Setup														Playwright
+	To Install: npm install cypress --save-dev						To Install: npm init playwright@latest -> Y -> tests -> Enter -> Enter
+	To Open Cypress: npx cypress open
+=========================================================================================================
+Playwright:
+project-folder/
+│
+├── tests/                              # Contains all test/spec files
+│   ├── login/
+│   │   └── login.spec.ts               # Login-related test cases
+│   ├── dashboard/
+│   │   └── dashboard.spec.ts           # Dashboard-related test cases
+│   └── checkout/
+│       └── checkout.spec.ts            # Checkout/payment-related test cases
+│
+├── pages/                              # Page Object Model (POM) files
+│   ├── LoginPage.ts                    # Locators & methods for Login page
+│   ├── DashboardPage.ts                # Dashboard page methods
+│   └── CheckoutPage.ts                 # Checkout page methods
+│
+├── fixtures/                           # Static test data / mock data
+│   ├── users.json                      # User credentials or profile data
+│   ├── products.json                   # Product-related test data
+│   └── apiResponse.json                # Mock API responses
+│
+├── utils/                              # Reusable helper functions
+│   ├── constants.ts                    # Common constants / URLs
+│   ├── helpers.ts                      # Generic helper functions
+│   └── testDataGenerator.ts            # Dynamic/random test data creation
+│
+├── hooks/                              # Global hooks / reusable setup-teardown
+│   ├── globalSetup.ts                  # Runs once before all tests
+│   ├── globalTeardown.ts               # Runs once after all tests
+│   └── testHooks.ts                    # beforeEach / afterEach reusable hooks
+│
+├── playwright-report/                  # HTML execution reports (auto-generated)
+│
+├── test-results/                       # Screenshots, videos, traces on failures
+│
+├── .env                                # Environment variables
+│
+├── playwright.config.ts                # Playwright configuration
+│                                        # Base URL, browsers, retries, reporter etc.
+│
+├── package.json                        # Project dependencies & npm scripts
+│
+├── node_modules/                       # Installed npm packages
+│
+├── reports/                            # Stores generated custom reports
+│   ├── html-report/                    # Custom HTML reports
+│   └── junit/                          # JUnit XML for CI/CD integration
+│
+├── .gitignore                          # Ignore node_modules, reports etc.
+│
+└── README.md                           # Project documentation / setup guide
+=========================================================================================================
+Cucumber:
+project-folder/
+│
+├── features/                               # Contains all feature files (BDD scenarios)
+│   ├── login/
+│   │   └── login.feature                   # Login scenarios in Given/When/Then format
+│   ├── dashboard/
+│   │   └── dashboard.feature               # Dashboard-related scenarios
+│   └── checkout/
+│       └── checkout.feature                # Checkout/payment scenarios
+│
+├── step-definitions/                       # Step definition files
+│   ├── loginSteps.js                       # Maps feature steps to automation code
+│   ├── dashboardSteps.js                   # Dashboard step definitions
+│   └── checkoutSteps.js                    # Checkout step definitions
+│
+├── pages/                                  # Page Object Model (POM) files
+│   ├── LoginPage.js                        # Locators & methods for Login page
+│   ├── DashboardPage.js                    # Dashboard page methods
+│   └── CheckoutPage.js                     # Checkout page methods
+│
+├── hooks/                                  # Hooks for setup/teardown
+│   ├── hooks.js                            # Before, After, BeforeStep, AfterStep
+│   ├── globalSetup.js                      # Runs before all features
+│   └── globalTeardown.js                   # Runs after all features
+│
+├── fixtures/                               # Static test data / mock data
+│   ├── users.json                          # User credentials or profile data
+│   ├── products.json                       # Product-related test data
+│   └── apiResponse.json                    # Mock API responses
+│
+├── utils/                                  # Helper methods / reusable utilities
+│   ├── constants.js                        # Common constants / URLs
+│   ├── helpers.js                          # Generic helper functions
+│   └── testDataGenerator.js                # Dynamic/random test data
+│
+├── reports/                                # Test execution reports
+│   ├── html-report/                        # HTML report
+│   ├── json-report/                        # JSON report
+│   └── junit/                              # XML report for CI/CD
+│
+├── screenshots/                            # Failure screenshots
+├── videos/                                 # Test execution videos (if supported)
+│
+├── cucumber.js / cucumber.json             # Cucumber configuration
+│                                            # Paths, tags, formatters etc.
+│
+├── package.json                            # Project dependencies & npm scripts
+│
+├── node_modules/                           # Installed npm packages
+│
+├── .env                                    # Environment variables
+│
+├── .gitignore                              # Ignore reports/node_modules/screenshots
+│
+└── README.md                               # Project documentation
