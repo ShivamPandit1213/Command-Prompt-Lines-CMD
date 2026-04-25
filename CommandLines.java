@@ -181,6 +181,10 @@ Step2: Execute cmd to see base.apk - adb shell pm path com.android.chrome
 Step3: Select only base.apk file from cmd - adb pull /data/app/~~c1VVlQ8lERYnsC2FzjANeQ==/com.facebook.katana-U57f3XcS0LU86s7B6ea7zg==/base.apk
 Step4: Appium does not support base.ap so convert it to base.apk via cmd: ren base.ap base.apk
 	base.apk store in Folder 'platform-tools' : C:\Users\Shivam Parashar\platform-tools
+	______________________________________________________________________________________
+To satrt server - 			appium
+For app web version - 		appium --allow-cors
+To clean aommand prompt - 	cls
 ______________________________________________________________________________________
 Commands - Jenkins
 
@@ -197,10 +201,7 @@ Jenkins.war path: 	cd C:\Users\Shivam Parashar\OneDrive\Jenkins\
 					cd C:\Users\Shivam Parashar\Jenkins
 To Start Jenkins: 	java -jar jenkins.war
 Pstgre Password : Password 
-______________________________________________________________________________________
-To satrt server - 			appium
-For app web version - 		appium --allow-cors
-To clean aommand prompt - 	cls
+
 ______________________________________________________________________________________
 Git:
 project-folder/
@@ -329,29 +330,6 @@ git add .
 git commit -m "Updated chatbot logic"
 git pull origin main
 git push origin main
-______________________________________________________________________________________
-mysql --version
-mysqld --console
-mysql -u root -p
-MYSQL password : Password@1213
-clear cmd - system cls
-C:\Program Files\MySQL\MySQL Server 8.0\bin
-C:\ProgramData\MySQL\MySQL Server 8.0
-
-mysqld --defaults-file="C:\\ProgramData\MySQL\MySQL Server 8.0\\my.ini" --init-file=c:\\mysql-init.txt --console
-
-Common:
-Location file : 	cd bqurious
-File Run : 			java -jar startBqClient.jar 
-
-Location -> Devices -> Billing Contract -> Create Bill
-Bill > Bill Item 
-
-agar kabhi ye error aye to follow these steps :
-i- Launch chrome://flags/#allow-insecure-localhost on Chrome
-ii- Look for the option "Allow invalid certificates for resources loaded from localhost." and enable the option.
-iii- Relaunch Chrome
-iv- Access BQ Platform and try Recording/Local Execution.
 =========================================================================================================
 Cypress:
 project-folder/
@@ -524,3 +502,26 @@ project-folder/
 ├── .gitignore                              # Ignore reports/node_modules/screenshots
 │
 └── README.md                               # Project documentation
+______________________________________________________________________________________
+mysql --version
+mysqld --console
+mysql -u root -p
+MYSQL password : Password@1213
+clear cmd - system cls
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+C:\ProgramData\MySQL\MySQL Server 8.0
+
+mysqld --defaults-file="C:\\ProgramData\MySQL\MySQL Server 8.0\\my.ini" --init-file=c:\\mysql-init.txt --console
+
+Common:
+Location file : 	cd bqurious
+File Run : 			java -jar startBqClient.jar 
+
+Location -> Devices -> Billing Contract -> Create Bill
+Bill > Bill Item 
+
+agar kabhi ye error aye to follow these steps :
+i- Launch chrome://flags/#allow-insecure-localhost on Chrome
+ii- Look for the option "Allow invalid certificates for resources loaded from localhost." and enable the option.
+iii- Relaunch Chrome
+iv- Access BQ Platform and try Recording/Local Execution.
