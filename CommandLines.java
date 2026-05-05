@@ -456,6 +456,8 @@ project-folder/
 	Command to Check Version: npx playwright --version
 	Command to Update(Package): npm install -D @playwright/test@latest
 	Command to Update(Browsers): npx playwright install
+	Playwright's interactive UI mode: npx playwright test --ui
+	
 	Make Directory: mkdir playwright-demo
 	Change Directory: cd playwright-demo
 	Initialize Playwright: npm init playwright@latest
