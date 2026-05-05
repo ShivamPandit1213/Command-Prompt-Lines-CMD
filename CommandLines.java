@@ -450,6 +450,12 @@ project-folder/
 ├── .gitignore                          # Ignore node_modules, reports etc.
 │
 └── README.md                           # Project documentation / setup guide
+	Make Directory: mkdir playwright-demo
+	Change Directory: cd playwright-demo
+	Initialize Playwright: npm init playwright@latest
+	Initialize (Bypass Bypass): npm.cmd init playwright@latest
+	Execute Tests: npx playwright test
+	View Results: npx playwright show-report
 =========================================================================================================
 Cucumber:
 project-folder/
