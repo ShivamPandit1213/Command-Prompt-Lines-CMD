@@ -21,6 +21,11 @@ takeown — makes the Administrators group the owner of all files and subfolders
 icacls — grants that group Full Control
 /R and /T — apply changes recursively through all subfolders	
 ______________________________________________________________________________________
+Copilot:
+How to Test It: copilot --help
+generate commands: copilot suggest "how do I undo my last git commit?"
+
+______________________________________________________________________________________
 For	                 Commands	                                     Work
 	        	    driverquery	                                    Lists All Installed Drivers	
 	            	powershell start cmd -v runAs 	                Run the Command Prompt as an Administrator	cd\  start from c drive
