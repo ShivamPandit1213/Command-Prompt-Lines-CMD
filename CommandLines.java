@@ -394,6 +394,8 @@ project-folder/
 ├── .gitignore                        # Ignore node_modules, reports, videos etc.
 │
 └── README.md                         # Project documentation / setup guide
+	Command to Check Version: npx cypress --version
+	Command to Update: npm install -D cypress@latest
 ______________________________________________________________________________________
 Cypress Setup														Playwright
 	To Install: npm install cypress --save-dev						To Install: npm init playwright@latest -> Y -> tests -> Enter -> Enter
@@ -450,6 +452,10 @@ project-folder/
 ├── .gitignore                          # Ignore node_modules, reports etc.
 │
 └── README.md                           # Project documentation / setup guide
+	
+	Command to Check Version: npx playwright --version
+	Command to Update(Package): npm install -D @playwright/test@latest
+	Command to Update(Browsers): npx playwright install
 	Make Directory: mkdir playwright-demo
 	Change Directory: cd playwright-demo
 	Initialize Playwright: npm init playwright@latest
