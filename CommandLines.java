@@ -335,6 +335,29 @@ git add .
 git commit -m "Updated chatbot logic"
 git pull origin main
 git push origin main
+
+New repo for multiple projects in single repo via cmd window on github?
+1.	Set Up the Monorepo Locally ->
+# 1. Create the main "master" folder for your repo
+mkdir my-monorepo
+# 2. Navigate into that folder
+cd my-monorepo
+# 3. Initialize it as a Git repository
+git init
+# 4. Create separate folders for your different projects
+mkdir project-1, mkdir project-2, mkdir project-3
+2. Add Files and Commit
+Before you push to GitHub, you need to tell Git to track these folders. (Git won't track completely empty folders, so it's a good practice to create a quick file, like a README.md, in the root directory).
+# Create a simple README file in the main folder
+echo "# My Monorepo" > README.md
+# Stage all folders and files
+git add .
+# Commit them to the local repository
+git commit -m "Initial commit with multiple projects"
+3. Push the Entire Repo to GitHub ->
+gh repo create my-monorepo --public --source=. --remote=origin --push
+
+	
 =========================================================================================================
 Cypress:
 project-folder/
