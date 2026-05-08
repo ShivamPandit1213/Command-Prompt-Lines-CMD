@@ -7,9 +7,7 @@ cls  		To clear Command Prompt
 C:			To go back to C drive
 
 Method 1: Using xcopy (Best for general use):
-	What the flag means:
-
-/E – Copies all sub-directories, including empty ones. (Robocopy automatically creates the destination folder if it doesn't exist, so you don't need the /I flag like you do with xcopy).xcopy "C:\path\to\source_folder" "C:\path\to\new_folder" /E /I /H /Y
+	xcopy "C:\path\to\source_folder" "C:\path\to\new_folder" /E /I /H /Y
 What the letters (flags) mean:
 /E – Copies all sub-folders, even if they are empty.
 /I – Tells Windows that the destination is a folder (so it automatically creates the new folder if it doesn't exist).
