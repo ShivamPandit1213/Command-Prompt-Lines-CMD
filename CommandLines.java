@@ -289,63 +289,9 @@ Workflow (Add → Commit → Push)
 																									
 	Remove this warning: git config --global core.autocrlf true																							
 																									
-1️⃣ Initialize Git (first time only)
-git init
-2️⃣ Add files to staging
-git add .
-👉 Adds all files (your Selenium project)
-OR specific file:
-git add ChatBot.java
-3️⃣ Commit changes
-git commit -m "Added chatbot automation logic"
-👉 This saves snapshot locally
-4️⃣ Connect to GitHub repo (one-time setup)
-git remote add origin https://github.com/username/repo-name.git
-
-5️⃣ Push code to GitHub *****************
-Project Location: cd /d D:\Git_Project\NaukriJob_Apr22
-# This forces your local branch to be renamed to 'main'
-git branch -M main
-# This pushes the code and links your local 'main' to GitHub's 'main'
-git push -u origin main
-********* Flow:
-# 1. Navigate into your new, clean folder
-cd /d D:\Git_Project\Naukri_Auto_Final
-# 2. Turn this clean folder into a fresh Git repository
-git init
-# 3. Add your pasted files
-git add .
-# 4. Create your first commit
-git commit -m "Initial commit: Naukri automation project"
-# 5. Set the branch to main
-git branch -M main
-# 6. Link it to the CORRECT GitHub repository
-git remote add origin https://github.com/ShivamPandit1213/NaukriJob_Apr22.git
-# 7. Push the code!
-git push -u origin main
---------------------------------------
-	Step 1: Update the remote URL: git remote set-url origin https://github.com/ShivamPandit1213/NaukriJob_Apr22.git
-	Step 2: Verify the change (Optional but recommended): git remote -v
-	Step 3: Push your code: git push -u origin main
-============================================================================================================================================
-🔄 Pull (Get Latest Code from GitHub) *****************
-git pull origin main
-👉 Use this before starting work to avoid conflicts
-********** Flow																						Repeat cmd:	
-1. Go to your main workspace folder: cd D:\Git_Project												cd D:\Git_Project
-2. Clone the correct repository: git clone https://github.com/ShivamPandit1213/NaukriTest.git		fatal: destination path 'NaukriTest' already exists and is not an empty directory.
-3. Move inside the new project folder: cd NaukriTest												cd NaukriTest
-
-1. Go into your existing folder: cd D:\path\to\your\existing\folder
-2. Sever the tie to the false repo and link the correct one: git remote set-url origin https://github.com/ShivamPandit1213/NaukriTest.git
-3. Verify the fix: git remote -v
-4. Pull the correct code down: git pull origin master
-	
-🔁 Daily Workflow (Very Important):
-git add .
-git commit -m "Updated chatbot logic"
-git pull origin main
-git push origin main
+1. Delete the copied .git folder: rmdir /S /Q .git
+2. Re-initialize a fresh Git repository: git init
+(Pro-Tip for the future: If you ever want to use robocopy but ignore the .git folder, you can add the Exclude Directory flag like this: robocopy "source" "dest" /E /XD .git)
 
 New repo for multiple projects in single repo via cmd window on github?
 1.	Set Up the Monorepo Locally ->
