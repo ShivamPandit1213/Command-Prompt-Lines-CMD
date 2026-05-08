@@ -219,56 +219,45 @@ To Start Jenkins: 	java -jar jenkins.war
 Pstgre Password : Password 
 
 ______________________________________________________________________________________
-== Git:
-project-folder/
+== Git:																								.git/
+project-folder/																						 │
+│																									├── HEAD                   # Points to current branch
+├── .git/                       # Hidden folder created by Git										├── HEAD                   # Points to current branch
+│   │                           # Stores commit history, branches, config							├── config                 # Local Git repository config
+│																									├── hooks/                 # Git hooks (pre-commit, pre-push etc.)
+├── src/                        # Main source code folder											├── objects/               # Stores commits, blobs, trees
+│   ├── main/                   # Main application/framework code									├── refs/
+│   ├── test/                   # Test scripts / automation code									│   ├── heads/             # Local branches
+│																									│   ├── remotes/           # Remote tracking branches
+├── docs/                       # Project documentation												│   └── tags/              # Tags/releases
+│   ├── API.md                  # API documentation
+│   ├── SETUP.md                # Installation/setup guide
+│   └── CONTRIBUTING.md         # Contribution guidelines
 │
-├── .git/                                 # Hidden folder created by Git
-│   │                                     # Stores commit history, branches, config
+├── config/                     # Configuration files
+│   ├── dev.config              # Development environment config
+│   ├── qa.config               # QA environment config
+│   └── prod.config             # Production config
 │
-├── src/                                  # Main source code folder
-│   ├── main/                             # Main application/framework code
-│   ├── test/                             # Test scripts / automation code
+├── scripts/                    # Utility scripts
+│   ├── build.sh                # Build script
+│   ├── deploy.sh               # Deployment script
+│   └── run-tests.sh            # Execute tests
 │
-├── docs/                                 # Project documentation
-│   ├── API.md                            # API documentation
-│   ├── SETUP.md                          # Installation/setup guide
-│   └── CONTRIBUTING.md                   # Contribution guidelines
+├── reports/                    # Test/build reports
+│   ├── html-report/            # HTML reports
+│   └── logs/                   # Execution logs
 │
-├── config/                               # Configuration files
-│   ├── dev.config                        # Development environment config
-│   ├── qa.config                         # QA environment config
-│   └── prod.config                       # Production config
+├── .gitignore                  # Ignore files/folders from commit
+│                               # Example: node_modules/, target/, logs/
 │
-├── scripts/                              # Utility scripts
-│   ├── build.sh                          # Build script
-│   ├── deploy.sh                         # Deployment script
-│   └── run-tests.sh                      # Execute tests
+├── .gitattributes              # Defines line endings / merge strategy
 │
-├── reports/                              # Test/build reports
-│   ├── html-report/                      # HTML reports
-│   └── logs/                             # Execution logs
+├── README.md                   # Project overview/documentation
 │
-├── .gitignore                            # Ignore files/folders from commit
-│                                          # Example: node_modules/, target/, logs/
-│
-├── .gitattributes                        # Defines line endings / merge strategy
-│
-├── README.md                             # Project overview/documentation
-│
-├── LICENSE                               # License information
+├── LICENSE                     # License information
 │
 └── Jenkinsfile / .github/ / .gitlab-ci.yml # CI/CD pipeline definitions
-
-.git/
-│
-├── HEAD                                  # Points to current branch
-├── config                                # Local Git repository config
-├── hooks/                                # Git hooks (pre-commit, pre-push etc.)
-├── objects/                              # Stores commits, blobs, trees
-├── refs/
-│   ├── heads/                            # Local branches
-│   ├── remotes/                          # Remote tracking branches
-│   └── tags/                             # Tags/releases
 	
 Workflow (Add → Commit → Push)															
 	Install cmd: winget install --id Git.Git -e --source winget									
