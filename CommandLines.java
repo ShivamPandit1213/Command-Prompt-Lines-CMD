@@ -33,7 +33,7 @@ takeown — makes the Administrators group the owner of all files and subfolders
 icacls — grants that group Full Control
 /R and /T — apply changes recursively through all subfolders	
 ______________________________________________________________________________________
-Copilot:
+== Copilot:
 How to Test It: copilot --help
 generate commands: copilot suggest "how do I undo my last git commit?"
 ______________________________________________________________________________________
@@ -43,7 +43,7 @@ For	                 Commands	                                     Work
 	                chdir or cd	                                    Changes the Current Working Directory to the Specified Directory	cd /d d:  for change drive
 	                systeminfo	                                    Shows Your PC's Details	cd.. one folder back
 ______________________________________________________________________________________
-Java	
+== Java	
 	                        For Run Java Program
   Compile Program                   C:\Users\Your Name>javac Main.java
   Run Java Program                  C:\Users\Your Name>java Main
@@ -54,7 +54,7 @@ Variable Name:		JAVA_HOME
 Variable Value:		C:\Program Files\Java\jdk-17
 System variables -> Path -> Edit -> New: %JAVA_HOME%\bin
 ______________________________________________________________________________________
-Maven Commands
+== Maven Commands
 project-folder/
 │
 ├── src/
@@ -133,7 +133,7 @@ Run the Project
 		mvn clean compile
 		mvn exec:java -Dexec.mainClass="com.example.app.App"
 ______________________________________________________________________________________
-Appium:
+== Appium:
 Install:
 1.	Download Node.js - https://nodejs.org/en
 2.	Download Android Studio
@@ -202,7 +202,7 @@ To satrt server - 			appium
 For app web version - 		appium --allow-cors
 To clean aommand prompt - 	cls
 ______________________________________________________________________________________
-Commands - Jenkins
+== Commands - Jenkins
 
 Jenkins - Web
 1. Navigate to: cd C:\Users\shiva\OneDrive\Jenkins
@@ -219,7 +219,7 @@ To Start Jenkins: 	java -jar jenkins.war
 Pstgre Password : Password 
 
 ______________________________________________________________________________________
-Git:
+== Git:
 project-folder/
 │
 ├── .git/                                 # Hidden folder created by Git
@@ -323,7 +323,7 @@ gh repo create awesome-monorepo --public --source=. --remote=origin --push
 If you run git clone [https://github.com/YourName/awesome-monorepo](https://github.com/YourName/awesome-monorepo), Git will automatically create a new local folder called awesome-monorepo, not my-stuff.
 
 =========================================================================================================
-Cypress:
+== Cypress:
 project-folder/
 │
 ├── cypress/
@@ -388,7 +388,7 @@ Cypress Setup														Playwright
 	To Install: npm install cypress --save-dev						To Install: npm init playwright@latest -> Y -> tests -> Enter -> Enter
 	To Open Cypress: npx cypress open
 =========================================================================================================
-Playwright:
+== Playwright:
 project-folder/
 │
 ├── tests/                              # Contains all test/spec files
@@ -452,7 +452,7 @@ project-folder/
 	Execute Tests: npx playwright test
 	View Results: npx playwright show-report
 =========================================================================================================
-Cucumber:
+== Cucumber:
 project-folder/
 │
 ├── features/                               # Contains all feature files (BDD scenarios)
@@ -509,7 +509,7 @@ project-folder/
 │
 └── README.md                               # Project documentation
 ______________________________________________________________________________________
-mysql --version
+== mysql --version
 mysqld --console
 mysql -u root -p
 MYSQL password : Password@1213
