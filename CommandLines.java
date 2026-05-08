@@ -293,6 +293,11 @@ Workflow (Add → Commit → Push)
 2. Re-initialize a fresh Git repository: git init
 (Pro-Tip for the future: If you ever want to use robocopy but ignore the .git folder, you can add the Exclude Directory flag like this: robocopy "source" "dest" /E /XD .git)
 
+1. Stage all your copied files: git add .
+2. Create your initial commit: git commit -m "Initial commit for ApplyJob_May8"
+3. Create the GitHub repo and push everything (using the GitHub CLI we discussed earlier): gh repo create ApplyJob_May8 --public --source=. --remote=origin --push
+(Note: You can change --public to --private if you don't want anyone else to see this code.)
+	
 New repo for multiple projects in single repo via cmd window on github?
 1.	Set Up the Monorepo Locally ->
 # 1. Create the main "master" folder for your repo
