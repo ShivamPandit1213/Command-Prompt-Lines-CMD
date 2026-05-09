@@ -268,8 +268,7 @@ Workflow (Add → Commit → Push)
 																								
 	cd onedriver -> cd javaselenium -> cd ProjectName											
 	Check if .git exists: dir /a  /  dir														
-	if .git not exist then run command in cmd: git init												
-																									
+	if .git not exist then run command in cmd: git init											
 	warnings: test-output/, *.html, *.xml, *.js														
 	in Project Update .gitignore: test-output/														
 								  *.html															
@@ -281,8 +280,13 @@ Workflow (Add → Commit → Push)
 1. Delete the copied .git folder: rmdir /S /Q .git
 2. Re-initialize a fresh Git repository: git init
 (Pro-Tip for the future: If you ever want to use robocopy but ignore the .git folder, you can add the Exclude Directory flag like this: robocopy "source" "dest" /E /XD .git)
-
-1. Stage all your copied files: git add .
+Delete the folder from GitHub AND your local computer:						Scenario B: Delete from GitHub, but KEEP it on your local computer
+Remove the folder and its contents: git rm -r name_of_folder				1. Remove the folder from Git's tracking (but leave it on your hard drive): git rm -r --cached name_of_folder
+2. Commit the deletion: git commit -m "Deleted name_of_folder"				(The --cached flag tells Git to stop tracking the folder, removing it from the remote repository, but it physically leaves the files on your PC).
+3. Push the changes to GitHub: git push origin master						2. Commit the change: git commit -m "Stop tracking name_of_folder"
+																			3. Push the changes to GitHub: git push origin master
+1. Stage all your copied files: git add .									Important Next Step for Scenario B: If you used the --cached method, the folder is still on your computer. The very next time you run git add ., Git will try to upload it to GitHub all over again!
+To prevent this, you must open your .gitignore file and type the name of the folder on a new line (e.g., test-output/). This tells Git to permanently ignore that folder in the future.
 2. Create your initial commit: git commit -m "Initial commit for ApplyJob_May8"
 3. Create the GitHub repo and push everything (using the GitHub CLI we discussed earlier): gh repo create ApplyJob_May8 --public --source=. --remote=origin --push
 (Note: You can change --public to --private if you don't want anyone else to see this code.)
