@@ -384,7 +384,8 @@ project-folder/
 ______________________________________________________________________________________
 Cypress Setup														Playwright
 	To Install: npm install cypress --save-dev						To Install: npm init playwright@latest -> Y -> tests -> Enter -> Enter
-	To Open Cypress: npx cypress open
+																	Update Playwright (Optional but recommended): npm install -D @playwright/test@latest
+	To Open Cypress: npx cypress open								Install the browsers manually via Command Line (Recommended): mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install"
 =========================================================================================================
 == Playwright:
 project-folder/
