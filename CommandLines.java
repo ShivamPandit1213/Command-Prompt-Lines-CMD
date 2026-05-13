@@ -387,28 +387,28 @@ Cypress Setup														Playwright
 																	Update Playwright (Optional but recommended): npm install -D @playwright/test@latest
 	To Open Cypress: npx cypress open								Install the browsers manually via Command Line (Recommended): mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install"
 =========================================================================================================
-== Playwright:
-project-folder/
-│
-├── tests/                              # Contains all test/spec files
-│   ├── login/
-│   │   └── login.spec.ts               # Login-related test cases
-│   ├── dashboard/
-│   │   └── dashboard.spec.ts           # Dashboard-related test cases
-│   └── checkout/
-│       └── checkout.spec.ts            # Checkout/payment-related test cases
-│
-├── pages/                              # Page Object Model (POM) files
-│   ├── LoginPage.ts                    # Locators & methods for Login page
-│   ├── DashboardPage.ts                # Dashboard page methods
-│   └── CheckoutPage.ts                 # Checkout page methods
-│
-├── fixtures/                           # Static test data / mock data
-│   ├── users.json                      # User credentials or profile data
-│   ├── products.json                   # Product-related test data
-│   └── apiResponse.json                # Mock API responses
-│
-├── utils/                              # Reusable helper functions
+== Playwright:																			my-hybrid-framework/     
+project-folder/																				├── pom.xml
+│																							└── src/
+├── tests/                              # Contains all test/spec files							├── main/
+│   ├── login/																					│   └── java/
+│   │   └── login.spec.ts               # Login-related test cases								│       └── com/framework/
+│   ├── dashboard/																				│           ├── core/
+│   │   └── dashboard.spec.ts           # Dashboard-related test cases							│           │   ├── SeleniumDriverManager.java  # Initializes WebDriver
+│   └── checkout/																				│           │   └── PlaywrightManager.java      # Initializes Playwright Page
+│       └── checkout.spec.ts            # Checkout/payment-related test cases					│           └── utils/
+│																								│               └── ConfigReader.java           # Reads properties files
+├── pages/                              # Page Object Model (POM) files							└── test/
+│   ├── LoginPage.ts                    # Locators & methods for Login page							└── java/
+│   ├── DashboardPage.ts                # Dashboard page methods										└── com/framework/	
+│   └── CheckoutPage.ts                 # Checkout page methods												├── pages/
+│																											│   ├── selenium/
+├── fixtures/                           # Static test data / mock data										│   │   └── LoginPageA.java         # Selenium WebElements		
+│   ├── users.json                      # User credentials or profile data									│   └── playwright/
+│   ├── products.json                   # Product-related test data											│       └── LoginPageB.java         # Playwright Locators
+│   └── apiResponse.json                # Mock API responses												└── tests/
+│																												├── BaseTest.java               # Setup/Teardown for both
+├── utils/                              # Reusable helper functions												└── HybridLoginTest.java        # Actual test execution
 │   ├── constants.ts                    # Common constants / URLs
 │   ├── helpers.ts                      # Generic helper functions
 │   └── testDataGenerator.ts            # Dynamic/random test data creation
