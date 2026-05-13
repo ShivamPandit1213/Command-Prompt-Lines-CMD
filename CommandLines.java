@@ -387,7 +387,7 @@ Cypress Setup														Playwright
 																	Update Playwright (Optional but recommended): npm install -D @playwright/test@latest
 	To Open Cypress: npx cypress open								Install the browsers manually via Command Line (Recommended): mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install"
 =========================================================================================================
-== Playwright:																			my-hybrid-framework/     
+== Playwright:																			my-hybrid-framework/  [Java + Selenium + Playwright + Maven]   
 project-folder/																				├── pom.xml
 │																							└── src/
 ├── tests/                              # Contains all test/spec files							├── main/
