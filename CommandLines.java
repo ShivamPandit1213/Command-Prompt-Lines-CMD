@@ -5,33 +5,46 @@ cd.. 		one folder back
 dir  		To know file and folder name avilable in current directory
 cls  		To clear Command Prompt
 C:			To go back to C drive
+_________________________________________________________________________
+== Java	
+For Run Java Program
+  Compile Program                   C:\Users\Your Name>javac Main.java
+  Run Java Program                  C:\Users\Your Name>java Main
+                          			Hello World
 
-Method 1: Using xcopy (Best for general use):
-	xcopy "C:\path\to\source_folder" "C:\path\to\new_folder" /E /I /H /Y
-What the letters (flags) mean:
-/E – Copies all sub-folders, even if they are empty.
-/I – Tells Windows that the destination is a folder (so it automatically creates the new folder if it doesn't exist).
-/H – Copies hidden files and system files, too.
-/Y – Suppresses the "Are you sure you want to overwrite?" prompt if files already exist in the destination.
-Method 2: Using robocopy (Best for large or complex transfers)
-	robocopy "C:\path\to\source_folder" "C:\path\to\new_folder" /E
-What the flag means:
-/E – Copies all sub-directories, including empty ones. (Robocopy automatically creates the destination folder if it doesn't exist, so you don't need the /I flag like you do with xcopy).
-
+Environment Variables -> System variables -> New:
+Variable Name:		JAVA_HOME
+Variable Value:		C:\Program Files\Java\jdk-17
+System variables -> Path -> Edit -> New: %JAVA_HOME%\bin
+--------------------------------------------------------------------------
 change location or set path for apps ex. git: cd C:\Users\shiva\OneDrive\JavaSelenium
+one folder back[Git]: cd ..	
+Delete the copied .git folder/directory on Windows: rmdir /S /Q .git
+Create Folder with a space (requires quotes): mkdir "Eclipse Workspace" -> cd "Eclipse Workspace"
+Create Folder with a hyphen/underscore (Recommended for coding environments): mkdir eclipse-workspace -> cd eclipse-workspace
+	
+Copy data from one folder to another:
+Using xcopy (Best for general use): xcopy "C:\path\to\source_folder" "C:\path\to\new_folder" /E /I /H /Y
+		/E – Copies all sub-folders, even if they are empty.
+		/I – Tells Windows that the destination is a folder (so it automatically creates the new folder if it doesn't exist).
+		/H – Copies hidden files and system files, too.
+		/Y – Suppresses the "Are you sure you want to overwrite?" prompt if files already exist in the destination.
+Using robocopy (Best for large or complex transfers): robocopy "C:\path\to\source_folder" "C:\path\to\new_folder" /E
+		/E – Copies all sub-directories, including empty ones. (Robocopy automatically creates the destination folder if it doesn't exist, so you don't need the /I flag like you do with xcopy).
+
 Give folder permission - change access to Administrator[Extenal Drive] -> Run Command Prompt as Administrator
 	takeown /F "F:\WindowsApps" /R /D Y
 	icacls "F:\WindowsApps" /grant administrators:F /T
 ✅ What this does:
-takeown changes ownership to the Administrators group (recursively)
-icacls gives Full Control permissions to Administrators
-
-takeown /F "E:\Applications" /R /D Y
-icacls "E:\Applications" /grant administrators:F /T
-	Explanation:
-takeown — makes the Administrators group the owner of all files and subfolders inside E:\Applications
-icacls — grants that group Full Control
-/R and /T — apply changes recursively through all subfolders	
+	takeown changes ownership to the Administrators group (recursively)
+	icacls gives Full Control permissions to Administrators
+	
+	takeown /F "E:\Applications" /R /D Y
+	icacls "E:\Applications" /grant administrators:F /T
+Explanation:
+	takeown — makes the Administrators group the owner of all files and subfolders inside E:\Applications
+	icacls — grants that group Full Control
+		/R and /T — apply changes recursively through all subfolders	
 ______________________________________________________________________________________
 == Copilot:
 How to Test It: copilot --help
@@ -42,17 +55,6 @@ For	                 Commands	                                     Work
 	            	powershell start cmd -v runAs 	                Run the Command Prompt as an Administrator	cd\  start from c drive
 	                chdir or cd	                                    Changes the Current Working Directory to the Specified Directory	cd /d d:  for change drive
 	                systeminfo	                                    Shows Your PC's Details	cd.. one folder back
-______________________________________________________________________________________
-== Java	
-	                        For Run Java Program
-  Compile Program                   C:\Users\Your Name>javac Main.java
-  Run Java Program                  C:\Users\Your Name>java Main
-                          Hello World
-
-Environment Variables -> System variables -> New:
-Variable Name:		JAVA_HOME
-Variable Value:		C:\Program Files\Java\jdk-17
-System variables -> Path -> Edit -> New: %JAVA_HOME%\bin
 ______________________________________________________________________________________
 == Maven Commands
 project-folder/
@@ -202,7 +204,7 @@ To satrt server - 			appium
 For app web version - 		appium --allow-cors
 To clean aommand prompt - 	cls
 ______________________________________________________________________________________
-== Commands - Jenkins
+== Jenkins
 
 Jenkins - Web
 1. Navigate to: cd C:\Users\shiva\OneDrive\Jenkins
@@ -217,7 +219,6 @@ Jenkins.war path: 	cd C:\Users\Shivam Parashar\OneDrive\Jenkins\
 					cd C:\Users\Shivam Parashar\Jenkins
 To Start Jenkins: 	java -jar jenkins.war
 Pstgre Password : Password 
-
 ______________________________________________________________________________________
 == Git:																								.git/
 project-folder/																						 │
@@ -263,8 +264,7 @@ Workflow (Add → Commit → Push)
 	Install cmd: winget install --id Git.Git -e --source winget									
 	Git version: git --version																	
 	SetName: C:\Users\shiva>	git config --global user.name "Shivam Parashar"						
-	SetEmail: C:\Users\shiva>	git config --global user.email "shivamparashar1213@gmail.com"	
-	one folder back[Git]: cd ..																	
+	SetEmail: C:\Users\shiva>	git config --global user.email "shivamparashar1213@gmail.com"																	
 																								
 	cd onedriver -> cd javaselenium -> cd ProjectName											
 	Check if .git exists: dir /a  /  dir														
@@ -277,8 +277,7 @@ Workflow (Add → Commit → Push)
 																									
 	Remove this warning: git config --global core.autocrlf true																							
 																									
-1. Delete the copied .git folder: rmdir /S /Q .git
-2. Re-initialize a fresh Git repository: git init
+1. Re-initialize a fresh Git repository: git init
 (Pro-Tip for the future: If you ever want to use robocopy but ignore the .git folder, you can add the Exclude Directory flag like this: robocopy "source" "dest" /E /XD .git)
 Delete the folder from GitHub AND your local computer:						Scenario B: Delete from GitHub, but KEEP it on your local computer
 Remove the folder and its contents: git rm -r name_of_folder				1. Remove the folder from Git's tracking (but leave it on your hard drive): git rm -r --cached name_of_folder
