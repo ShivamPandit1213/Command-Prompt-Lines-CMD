@@ -5,6 +5,9 @@ cd.. 		one folder back
 dir  		To know file and folder name avilable in current directory
 cls  		To clear Command Prompt
 C:			To go back to C drive
+
+	mkdir: stands for Make Directory. You use it to create a new, empty folder.  
+	rmdir: stands for Remove Directory. You use it to delete an existing folder.  
 _________________________________________________________________________
 == Java	
 For Run Java Program
