@@ -10,8 +10,7 @@ C:			To go back to C drive
 	mkdir: stands for Make Directory. You use it to create a new, empty folder.  
 	rmdir: stands for Remove Directory. You use it to delete an existing folder.
 _________________________________________________________________________
-== Java	
-For Run Java Program
+== Java	-> For Run Java Program
   Compile Program                   C:\Users\Your Name>javac Main.java
   Run Java Program                  C:\Users\Your Name>java Main -> Hello World
 
