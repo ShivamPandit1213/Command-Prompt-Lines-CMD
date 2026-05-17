@@ -132,6 +132,10 @@ Run the Project
 		mvn clean compile
 		mvn exec:java -Dexec.mainClass="com.example.app.App"
 ______________________________________________________________________________________
+To satrt server - 			appium
+For app web version - 		appium --allow-cors
+To clean aommand prompt - 	cls
+______________________________________________________________________________________
 == Appium:
 Install:
 1.	Download Node.js - https://nodejs.org/en
@@ -196,10 +200,6 @@ Step2: Execute cmd to see base.apk - adb shell pm path com.android.chrome
 Step3: Select only base.apk file from cmd - adb pull /data/app/~~c1VVlQ8lERYnsC2FzjANeQ==/com.facebook.katana-U57f3XcS0LU86s7B6ea7zg==/base.apk
 Step4: Appium does not support base.ap so convert it to base.apk via cmd: ren base.ap base.apk
 	base.apk store in Folder 'platform-tools' : C:\Users\Shivam Parashar\platform-tools
-______________________________________________________________________________________
-To satrt server - 			appium
-For app web version - 		appium --allow-cors
-To clean aommand prompt - 	cls
 ______________________________________________________________________________________
 == Jenkins
 
