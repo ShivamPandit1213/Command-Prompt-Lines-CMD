@@ -9,14 +9,14 @@ C:			To go back to C drive
 	mkdir: stands for Make Directory. You use it to create a new, empty folder.  
 	rmdir: stands for Remove Directory. You use it to delete an existing folder.
 ______________________________________________________________________________________
-For	                 Commands	                                     Work
-	        	    driverquery	                                    Lists All Installed Drivers	
-	            	powershell start cmd -v runAs 	                Run the Command Prompt as an Administrator	
-					cd\  											start from c drive
-	                chdir or cd	                                    Changes the Current Working Directory to the Specified Directory	
-					cd /d d:  										for change drive
-	                systeminfo	                                    Shows Your PC's Details	
-					cd.. 											one folder back
+For	      Commands	                            Work
+	      driverquery	                        Lists All Installed Drivers	
+	      powershell start cmd -v runAs 	    Run the Command Prompt as an Administrator	
+		cd\  									start from c drive
+	    chdir or cd	                           Changes the Current Working Directory to the Specified Directory	
+		cd /d d:  								for change drive
+	   	systeminfo	                            Shows Your PC's Details	
+		cd.. 									one folder back
 _________________________________________________________________________
 == Java	
 For Run Java Program
