@@ -12,13 +12,24 @@ _________________________________________________________________________
 == Java	
 For Run Java Program
   Compile Program                   C:\Users\Your Name>javac Main.java
-  Run Java Program                  C:\Users\Your Name>java Main
-                          			Hello World
+  Run Java Program                  C:\Users\Your Name>java Main -> Hello World
 
 Environment Variables -> System variables -> New:
 Variable Name:		JAVA_HOME
 Variable Value:		C:\Program Files\Java\jdk-17
 System variables -> Path -> Edit -> New: %JAVA_HOME%\bin
+______________________________________________________________________________________
+== Copilot:
+How to Test It: copilot --help
+generate commands: copilot suggest "how do I undo my last git commit?"
+______________________________________________________________________________________
+For	                 Commands	                                     Work
+	        	    driverquery	                                    Lists All Installed Drivers	
+	            	powershell start cmd -v runAs 	                Run the Command Prompt as an Administrator	
+					cd\  											start from c drive
+	                chdir or cd	                                    Changes the Current Working Directory to the Specified Directory	
+					cd /d d:  										for change drive
+	                systeminfo	                                    Shows Your PC's Details	cd.. one folder back
 --------------------------------------------------------------------------
 change location or set path for apps ex. git: cd C:\Users\shiva\OneDrive\JavaSelenium
 one folder back[Git]: cd ..	
@@ -48,16 +59,6 @@ Explanation:
 	takeown — makes the Administrators group the owner of all files and subfolders inside E:\Applications
 	icacls — grants that group Full Control
 		/R and /T — apply changes recursively through all subfolders	
-______________________________________________________________________________________
-== Copilot:
-How to Test It: copilot --help
-generate commands: copilot suggest "how do I undo my last git commit?"
-______________________________________________________________________________________
-For	                 Commands	                                     Work
-	        	    driverquery	                                    Lists All Installed Drivers	
-	            	powershell start cmd -v runAs 	                Run the Command Prompt as an Administrator	cd\  start from c drive
-	                chdir or cd	                                    Changes the Current Working Directory to the Specified Directory	cd /d d:  for change drive
-	                systeminfo	                                    Shows Your PC's Details	cd.. one folder back
 ______________________________________________________________________________________
 == Maven Commands
 project-folder/
