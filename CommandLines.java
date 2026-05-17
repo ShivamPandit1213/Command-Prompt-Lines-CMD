@@ -7,7 +7,16 @@ cls  		To clear Command Prompt
 C:			To go back to C drive
 
 	mkdir: stands for Make Directory. You use it to create a new, empty folder.  
-	rmdir: stands for Remove Directory. You use it to delete an existing folder.  
+	rmdir: stands for Remove Directory. You use it to delete an existing folder.
+______________________________________________________________________________________
+For	                 Commands	                                     Work
+	        	    driverquery	                                    Lists All Installed Drivers	
+	            	powershell start cmd -v runAs 	                Run the Command Prompt as an Administrator	
+					cd\  											start from c drive
+	                chdir or cd	                                    Changes the Current Working Directory to the Specified Directory	
+					cd /d d:  										for change drive
+	                systeminfo	                                    Shows Your PC's Details	
+					cd.. 											one folder back
 _________________________________________________________________________
 == Java	
 For Run Java Program
@@ -22,14 +31,6 @@ ________________________________________________________________________________
 == Copilot:
 How to Test It: copilot --help
 generate commands: copilot suggest "how do I undo my last git commit?"
-______________________________________________________________________________________
-For	                 Commands	                                     Work
-	        	    driverquery	                                    Lists All Installed Drivers	
-	            	powershell start cmd -v runAs 	                Run the Command Prompt as an Administrator	
-					cd\  											start from c drive
-	                chdir or cd	                                    Changes the Current Working Directory to the Specified Directory	
-					cd /d d:  										for change drive
-	                systeminfo	                                    Shows Your PC's Details	cd.. one folder back
 --------------------------------------------------------------------------
 change location or set path for apps ex. git: cd C:\Users\shiva\OneDrive\JavaSelenium
 one folder back[Git]: cd ..	
