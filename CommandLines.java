@@ -1,19 +1,14 @@
 CMD
-cd /d d:  	for change drive
-cd\  		start from c drive
-cd.. 		one folder back
-dir  		To know file and folder name avilable in current directory
+Commands	Work															Commands			 				Work
+cd /d d:  	for change drive												driverquery	         				Lists All Installed Drivers	
+cd\  		start from c drive												powershell start cmd -v runAs 	    Run the Command Prompt as an Administrator
+cd.. 		one folder back													chdir or cd	           				Changes the Current Working Directory to the Specified Directory
+dir  		To know file and folder name avilable in current directory		systeminfo	           				Shows Your PC's Details
 cls  		To clear Command Prompt
 C:			To go back to C drive
 
 	mkdir: stands for Make Directory. You use it to create a new, empty folder.  
 	rmdir: stands for Remove Directory. You use it to delete an existing folder.
-______________________________________________________________________________________
-For	      Commands	                            Work
-	      driverquery	                        Lists All Installed Drivers	
-	      powershell start cmd -v runAs 	    Run the Command Prompt as an Administrator	
-	    chdir or cd	                           Changes the Current Working Directory to the Specified Directory	
-	   	systeminfo	                            Shows Your PC's Details
 _________________________________________________________________________
 == Java	
 For Run Java Program
