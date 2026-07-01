@@ -19,6 +19,10 @@ Variable Name:		JAVA_HOME
 Variable Value:		C:\Program Files\Java\jdk-17
 System variables -> Path -> Edit -> New: %JAVA_HOME%\bin
 ______________________________________________________________________________________
+== Claude CLI: curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
+	Verify Where File: where.exe claude
+	Check Version: claude --version
+	
 == Copilot:
 How to Test It: copilot --help
 generate commands: copilot suggest "how do I undo my last git commit?"
