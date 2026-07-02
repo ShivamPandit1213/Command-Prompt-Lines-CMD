@@ -28,6 +28,10 @@ Environment -> Edit [Path] -> C:\Users\shiva\.local\bin
 How to Test It: copilot --help
 generate commands: copilot suggest "how do I undo my last git commit?"
 --------------------------------------------------------------------------
+== Git ==
+	Download Link: https://git-scm.com/install/windows
+	C:\Users\shiva>git --version
+	git version 2.55.0.windows.1
 change location or set path for apps ex. git: cd C:\Users\shiva\OneDrive\JavaSelenium
 one folder back[Git]: cd ..	
 Delete the copied .git folder/directory on Windows: rmdir /S /Q .git
