@@ -23,7 +23,7 @@ ________________________________________________________________________________
 Environment -> Edit [Path] -> C:\Users\shiva\.local\bin
 	Verify Where File: where.exe claude
 	Check Version: claude --version
-	
+Eclipse -> Window → Preferences → Claude Code -> Claude command: C:\Users\shiva\.local\bin\claude.exe
 == Copilot:
 How to Test It: copilot --help
 generate commands: copilot suggest "how do I undo my last git commit?"
