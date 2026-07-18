@@ -1,4 +1,14 @@
 CMD
+Auto-run Multiple commands - create Notepad file "start_jenkins.bat"
+	@echo off
+	echo Starting Jenkins with JDK 17...
+	"%JAVA17%\bin\java.exe" -jar jenkins.war
+	pause
+
+already being used by another program on your computer.
+	Change Port  for Jenkins: "%JAVA17%\bin\java.exe" -jar jenkins.war --httpPort=9090
+Command Prompt as Administrator: netstat -ano | findstr :8080
+	LISTENING[37500] -> Terminate Port: taskkill /PID 37500 /F
 Commands	Work															Commands			 				Work
 cd /d d:  	for change drive												driverquery	         				Lists All Installed Drivers	
 cd\  		start from c drive												powershell start cmd -v runAs 	    Run the Command Prompt as an Administrator
