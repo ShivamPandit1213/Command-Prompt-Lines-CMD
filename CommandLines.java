@@ -143,6 +143,13 @@ Install: apache-maven-3.9.11-bin
 	Run tests: 		mvn test
 	Clean and build together: 	mvn clean install
 
+You're all set to use mvn commands. A few you'll likely reach for:
+mvn -version — confirm setup (done)
+mvn clean install — build a project and install it to your local repo
+mvn compile — compile source
+mvn test — run tests
+mvn archetype:generate — scaffold a new project
+	
 Create Maven Project: mvn archetype:generate -DgroupId=com.example.app -DartifactId=my-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 Run the Project
