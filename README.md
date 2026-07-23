@@ -89,3 +89,92 @@ Options:
 | `-up, --update-plugins` | Does nothing — kept only for backward compatibility |
 | `-v, --version` | Show version and exit |
 | `-V, --show-version` | Show version and keep building |
+
+
+Here are all three as GitHub-ready command → purpose tables.
+## Git Commands
+
+| Command | Purpose |
+|---|---|
+| `git init` | Create a new repository in the current folder |
+| `git clone <url>` | Copy a remote repository to your machine |
+| `git status` | Show changed, staged, and untracked files |
+| `git add <file>` | Stage a file for the next commit (`git add .` for all) |
+| `git commit -m "msg"` | Save staged changes with a message |
+| `git commit -am "msg"` | Stage all tracked changes and commit in one step |
+| `git log --oneline` | Show commit history, one line each |
+| `git diff` | Show unstaged changes; `git diff --staged` for staged |
+| `git branch` | List branches; `git branch <name>` to create one |
+| `git checkout <branch>` | Switch to a branch (or `git switch <branch>`) |
+| `git checkout -b <branch>` | Create a branch and switch to it |
+| `git merge <branch>` | Merge another branch into the current one |
+| `git rebase <branch>` | Reapply your commits on top of another branch |
+| `git pull` | Fetch and merge changes from the remote |
+| `git push` | Send your commits to the remote |
+| `git push -u origin <branch>` | Push a new branch and set it to track the remote |
+| `git remote -v` | List configured remotes |
+| `git fetch` | Download remote changes without merging |
+| `git stash` | Shelve uncommitted changes; `git stash pop` to restore |
+| `git reset <file>` | Unstage a file (keeps changes) |
+| `git reset --hard <commit>` | Discard everything back to a commit (destructive) |
+| `git revert <commit>` | Create a new commit that undoes a past one |
+| `git tag <name>` | Mark a commit (e.g. a release version) |
+| `git cherry-pick <commit>` | Apply a single commit from elsewhere |
+| `git restore <file>` | Discard changes in a file (newer alternative to checkout) |
+
+## Jenkins Commands
+
+Jenkins is mostly UI-driven; command-line access is via the CLI jar or REST API.
+
+### Jenkins CLI (`java -jar jenkins-cli.jar -s <URL>`)
+| Command | Purpose |
+|---|---|
+| `help` | List available CLI commands |
+| `version` | Show the Jenkins version |
+| `list-jobs` | List all jobs |
+| `build <job>` | Trigger a job build |
+| `build <job> -f -v` | Trigger a build, follow it, and stream console output |
+| `build <job> -p KEY=VALUE` | Trigger a parameterized build |
+| `console <job>` | Print a job's console output |
+| `get-job <job>` | Export a job's `config.xml` |
+| `create-job <job>` | Create a job from a piped `config.xml` |
+| `update-job <job>` | Update a job's config from piped XML |
+| `delete-job <job>` | Delete a job |
+| `disable-job <job>` / `enable-job <job>` | Disable or enable a job |
+| `safe-restart` | Restart Jenkins after builds finish |
+| `restart` | Restart Jenkins immediately |
+| `reload-configuration` | Reload config from disk |
+| `who-am-i` | Show your credentials and permissions |
+| `install-plugin <name>` | Install a plugin |
+
+### Common CI shell steps (what a pipeline usually runs)
+| Command | Purpose |
+|---|---|
+| `mvn clean package` | Build and package a Maven project |
+| `mvn test` | Run tests in a build stage |
+| `git pull` | Pull latest code at the start of a job |
+| `docker build -t <img> .` | Build a Docker image in a pipeline |
+
+## Java Commands (JDK tools)
+
+| Command | Purpose |
+|---|---|
+| `java <MainClass>` | Run a compiled class with a `main` method |
+| `java -jar app.jar` | Run an executable JAR |
+| `java Main.java` | Compile and run a single source file directly (Java 11+) |
+| `java -version` | Show the installed Java version |
+| `java -cp <path> <Class>` | Run with a specific classpath |
+| `java -D<key>=<value> ...` | Pass a system property to the program |
+| `java -Xmx512m ...` | Set max heap size (memory) |
+| `javac <File>.java` | Compile a source file to `.class` bytecode |
+| `javac -d out src/*.java` | Compile into an output directory |
+| `javac -cp <path> <File>.java` | Compile against a classpath |
+| `jar cf app.jar *.class` | Create a JAR from class files |
+| `jar cfe app.jar Main *.class` | Create an executable JAR with a main class (entry point) |
+| `jar tf app.jar` | List the contents of a JAR |
+| `jar xf app.jar` | Extract a JAR |
+| `javadoc <File>.java` | Generate HTML API documentation |
+| `jshell` | Open the interactive Java REPL |
+| `jps` | List running Java processes |
+| `jstack <pid>` | Print a thread dump for a running process |
+| `keytool -list -keystore <file>` | Manage keys/certificates (SSL testing) |
