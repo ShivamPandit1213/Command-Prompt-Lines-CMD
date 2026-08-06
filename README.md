@@ -1,4 +1,3 @@
-CommandLines.java = CMD + Java + Copilot + Git + Maven + Appium + Jenkins + Cypress + Playwright + Cucumber + mysql
 # CommandLines
 
 CMD + Java + Copilot + Git + Maven + Appium + Jenkins + Cypress + Playwright + Cucumber + MySQL
@@ -14,19 +13,30 @@ version**, then **open / launch** it.
   - [Install CMD](#install-cmd)
   - [Open Applications from CMD](#open-applications-from-cmd)
   - [CMD Essentials](#cmd-essentials)
-- [Maven](#maven)
-  - [Install Maven](#install-maven)
-  - [Maven CLI Options](#maven-cli-options)
+- [Java](#java)
+  - [Install Java](#install-java)
+  - [Java Commands (JDK tools)](#java-commands-jdk-tools)
+- [Copilot](#copilot)
+  - [Install Copilot](#install-copilot)
+  - [Copilot Commands](#copilot-commands)
 - [Git](#git)
   - [Install Git](#install-git)
   - [Git Commands](#git-commands)
+- [Maven](#maven)
+  - [Install Maven](#install-maven)
+  - [Maven CLI Options](#maven-cli-options)
+- [Appium](#appium)
+  - [Install Appium](#install-appium)
+  - [Appium Server Commands](#appium-server-commands)
+  - [Driver and Device Helpers](#driver-and-device-helpers)
 - [Jenkins](#jenkins)
   - [Install Jenkins](#install-jenkins)
   - [Jenkins CLI](#jenkins-cli)
   - [Common CI shell steps](#common-ci-shell-steps)
-- [Java](#java)
-  - [Install Java](#install-java)
-  - [Java Commands (JDK tools)](#java-commands-jdk-tools)
+- [Cypress](#cypress)
+  - [Install Cypress](#install-cypress)
+  - [Cypress Run Commands](#cypress-run-commands)
+  - [Cypress Cache and Setup](#cypress-cache-and-setup)
 - [Playwright](#playwright)
   - [Install Playwright](#install-playwright)
   - [Open Playwright](#open-playwright)
@@ -38,6 +48,10 @@ version**, then **open / launch** it.
   - [Install Cucumber](#install-cucumber)
   - [Cucumber-JVM](#cucumber-jvm)
   - [Cucumber-JS](#cucumber-js)
+- [MySQL](#mysql)
+  - [Install MySQL](#install-mysql)
+  - [MySQL CLI Commands](#mysql-cli-commands)
+  - [Inside the mysql Shell](#inside-the-mysql-shell)
 - [Everyday Commands](#everyday-commands)
 
 ## Open Applications
@@ -56,6 +70,10 @@ One line per tool — how to actually launch it once it is installed.
 | Cucumber (JVM) | No app — `start target\report.html` opens the generated report |
 | Cucumber (JS) | `start report.html`, after running with `--format html:report.html` |
 | VS Code | `code .` opens the current folder |
+| Copilot | `copilot` starts an interactive session in the current folder |
+| Cypress | `npx cypress open` opens the interactive Test Runner |
+| Appium | `appium` starts the server, then `appium-inspector` for the GUI |
+| MySQL | `mysql -u root -p` (client shell), or `mysqlsh` for MySQL Shell |
 | **Any custom app** | `start "" "C:\Path\To\app.exe"` — see [Open Any Custom App](#open-any-custom-app) |
 
 `jconsole` ships with the JDK. VisualVM was removed from the JDK in Java 9 and
@@ -151,6 +169,125 @@ usable. Running `app.exe` directly instead ties the app to that window.
 | `<cmd> > out.txt` | Redirect output to a file (`>>` appends) |
 | `<cmd> 2>&1` | Merge error output into standard output |
 
+## Java
+
+### Install Java
+
+| Step | Command |
+|---|---|
+| Install (macOS) | `brew install openjdk@21` |
+| Install (Debian/Ubuntu) | `sudo apt install openjdk-21-jdk` |
+| Install (Windows) | `winget install EclipseAdoptium.Temurin.21.JDK` |
+| Verify version | `java -version` and `javac -version` |
+| Open | `jshell` — the interactive Java REPL |
+
+If `java -version` works but `javac -version` does not, you have a JRE rather
+than a JDK, or `JAVA_HOME` points at the wrong install.
+
+### Java Commands (JDK tools)
+
+| Command | Purpose |
+|---|---|
+| `java <MainClass>` | Run a compiled class with a `main` method |
+| `java -jar app.jar` | Run an executable JAR |
+| `java Main.java` | Compile and run a single source file directly (Java 11+) |
+| `java -version` | Show the installed Java version |
+| `java -cp <path> <Class>` | Run with a specific classpath |
+| `java -D<key>=<value> ...` | Pass a system property to the program |
+| `java -Xmx512m ...` | Set max heap size (memory) |
+| `javac <File>.java` | Compile a source file to `.class` bytecode |
+| `javac -d out src/*.java` | Compile into an output directory |
+| `javac -cp <path> <File>.java` | Compile against a classpath |
+| `jar cf app.jar *.class` | Create a JAR from class files |
+| `jar cfe app.jar Main *.class` | Create an executable JAR with a main class (entry point) |
+| `jar tf app.jar` | List the contents of a JAR |
+| `jar xf app.jar` | Extract a JAR |
+| `javadoc <File>.java` | Generate HTML API documentation |
+| `jshell` | Open the interactive Java REPL |
+| `jps` | List running Java processes |
+| `jstack <pid>` | Print a thread dump for a running process |
+| `keytool -list -keystore <file>` | Manage keys/certificates (SSL testing) |
+
+## Copilot
+
+GitHub Copilot CLI — the terminal agent, not the editor extension.
+
+### Install Copilot
+
+| Step | Command |
+|---|---|
+| Install (npm, all platforms) | `npm install -g @github/copilot` |
+| Install (Windows) | `winget install GitHub.Copilot` |
+| Install (macOS/Linux) | `brew install --cask copilot-cli` |
+| Verify version | `copilot --version` |
+| Open | `copilot` — starts an interactive session in the current folder |
+
+Needs Node.js 22+ and npm 10+, plus a Copilot subscription. Re-running the npm
+install command is also how you update. On an organization plan an admin has to
+enable Copilot CLI before it will work.
+
+### Copilot Commands
+
+| Command | Purpose |
+|---|---|
+| `copilot` | Start an interactive session in the current directory |
+| `copilot -p "<prompt>"` | Run one prompt non-interactively — usable inside scripts |
+| `copilot --banner` | Start showing the startup banner |
+| `/login` | Authenticate with GitHub, from inside a session |
+| `gh copilot` | Launch Copilot CLI via the GitHub CLI, installing it on first run |
+
+Type `/` inside a session to list the available slash commands. To authenticate
+without the browser flow, export a fine-grained PAT with the Copilot Requests
+permission as `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN`.
+
+Every file change and shell command needs your explicit approval before it runs.
+
+The old `@githubnext/github-copilot-cli` package and the `gh copilot
+suggest` / `gh copilot explain` extension are deprecated — `gh copilot` now
+forwards to this CLI instead.
+
+## Git
+
+### Install Git
+
+| Step | Command |
+|---|---|
+| Install (macOS) | `brew install git` |
+| Install (Debian/Ubuntu) | `sudo apt install git` |
+| Install (Windows) | `winget install Git.Git` or `choco install git` |
+| Verify version | `git --version` |
+| Open | `git gui` (commit tool) or `gitk` (history browser), both bundled |
+
+### Git Commands
+
+| Command | Purpose |
+|---|---|
+| `git init` | Create a new repository in the current folder |
+| `git clone <url>` | Copy a remote repository to your machine |
+| `git status` | Show changed, staged, and untracked files |
+| `git add <file>` | Stage a file for the next commit (`git add .` for all) |
+| `git commit -m "msg"` | Save staged changes with a message |
+| `git commit -am "msg"` | Stage all tracked changes and commit in one step |
+| `git log --oneline` | Show commit history, one line each |
+| `git diff` | Show unstaged changes; `git diff --staged` for staged |
+| `git branch` | List branches; `git branch <name>` to create one |
+| `git checkout <branch>` | Switch to a branch (or `git switch <branch>`) |
+| `git checkout -b <branch>` | Create a branch and switch to it |
+| `git merge <branch>` | Merge another branch into the current one |
+| `git rebase <branch>` | Reapply your commits on top of another branch |
+| `git pull` | Fetch and merge changes from the remote |
+| `git push` | Send your commits to the remote |
+| `git push -u origin <branch>` | Push a new branch and set it to track the remote |
+| `git remote -v` | List configured remotes |
+| `git fetch` | Download remote changes without merging |
+| `git stash` | Shelve uncommitted changes; `git stash pop` to restore |
+| `git reset <file>` | Unstage a file (keeps changes) |
+| `git reset --hard <commit>` | Discard everything back to a commit (destructive) |
+| `git revert <commit>` | Create a new commit that undoes a past one |
+| `git tag <name>` | Mark a commit (e.g. a release version) |
+| `git cherry-pick <commit>` | Apply a single commit from elsewhere |
+| `git restore <file>` | Discard changes in a file (newer alternative to checkout) |
+
 ## Maven
 
 ### Install Maven
@@ -211,47 +348,54 @@ the thing that is actually wrong.
 | `-v, --version` | Show version and exit |
 | `-V, --show-version` | Show version and keep building |
 
-## Git
+## Appium
 
-### Install Git
+### Install Appium
 
 | Step | Command |
 |---|---|
-| Install (macOS) | `brew install git` |
-| Install (Debian/Ubuntu) | `sudo apt install git` |
-| Install (Windows) | `winget install Git.Git` or `choco install git` |
-| Verify version | `git --version` |
-| Open | `git gui` (commit tool) or `gitk` (history browser), both bundled |
+| Install | `npm i -g appium` |
+| Install a driver | `appium driver install uiautomator2` (Android), `appium driver install xcuitest` (iOS) |
+| Verify version | `appium -v` |
+| Open | `appium` — starts the server on `http://127.0.0.1:4723` |
+| Open (GUI) | `appium-inspector`, a separate download from its own repo |
 
-### Git Commands
+Appium 2 ships with no drivers at all. A fresh install that fails immediately is
+almost always a missing driver rather than a broken setup.
+
+### Appium Server Commands
 
 | Command | Purpose |
 |---|---|
-| `git init` | Create a new repository in the current folder |
-| `git clone <url>` | Copy a remote repository to your machine |
-| `git status` | Show changed, staged, and untracked files |
-| `git add <file>` | Stage a file for the next commit (`git add .` for all) |
-| `git commit -m "msg"` | Save staged changes with a message |
-| `git commit -am "msg"` | Stage all tracked changes and commit in one step |
-| `git log --oneline` | Show commit history, one line each |
-| `git diff` | Show unstaged changes; `git diff --staged` for staged |
-| `git branch` | List branches; `git branch <name>` to create one |
-| `git checkout <branch>` | Switch to a branch (or `git switch <branch>`) |
-| `git checkout -b <branch>` | Create a branch and switch to it |
-| `git merge <branch>` | Merge another branch into the current one |
-| `git rebase <branch>` | Reapply your commits on top of another branch |
-| `git pull` | Fetch and merge changes from the remote |
-| `git push` | Send your commits to the remote |
-| `git push -u origin <branch>` | Push a new branch and set it to track the remote |
-| `git remote -v` | List configured remotes |
-| `git fetch` | Download remote changes without merging |
-| `git stash` | Shelve uncommitted changes; `git stash pop` to restore |
-| `git reset <file>` | Unstage a file (keeps changes) |
-| `git reset --hard <commit>` | Discard everything back to a commit (destructive) |
-| `git revert <commit>` | Create a new commit that undoes a past one |
-| `git tag <name>` | Mark a commit (e.g. a release version) |
-| `git cherry-pick <commit>` | Apply a single commit from elsewhere |
-| `git restore <file>` | Discard changes in a file (newer alternative to checkout) |
+| `appium` | Start the server on the default port 4723 |
+| `appium -p 4724` | Start on a different port |
+| `appium --address 0.0.0.0` | Bind to all interfaces, not just localhost |
+| `appium --base-path /wd/hub` | Serve under the legacy base path older clients expect |
+| `appium --log appium.log` | Write the server log to a file |
+| `appium --log-level debug` | Raise or lower log verbosity |
+| `appium --log-timestamp` | Prefix log lines with timestamps |
+| `appium --session-override` | Kill any existing session when a new one starts |
+| `appium --relaxed-security` | Allow insecure features on a trusted machine |
+| `appium --allow-insecure=adb_shell` | Enable one insecure feature by name |
+| `appium --use-drivers=uiautomator2` | Load only the drivers you need |
+
+### Driver and Device Helpers
+
+| Command | Purpose |
+|---|---|
+| `appium driver list` | Show installed and available drivers |
+| `appium driver install <name>` | Install a driver |
+| `appium driver update <name>` | Update an installed driver |
+| `appium driver uninstall <name>` | Remove a driver |
+| `appium driver doctor uiautomator2` | Check the environment prerequisites for a driver |
+| `appium plugin list` | Show installed and available plugins |
+| `adb devices` | List attached devices and emulators |
+| `adb install <app.apk>` | Install an APK on the connected device |
+| `adb uninstall <package>` | Remove an app by package name |
+| `adb shell pm list packages` | List installed packages, to find the one you need |
+| `adb logcat` | Stream device logs |
+| `emulator -list-avds` | List available Android virtual devices |
+| `emulator -avd <name>` | Launch an emulator by name |
 
 ## Jenkins
 
@@ -306,44 +450,53 @@ What a pipeline usually runs.
 | `git pull` | Pull latest code at the start of a job |
 | `docker build -t <img> .` | Build a Docker image in a pipeline |
 
-## Java
+## Cypress
 
-### Install Java
+### Install Cypress
 
 | Step | Command |
 |---|---|
-| Install (macOS) | `brew install openjdk@21` |
-| Install (Debian/Ubuntu) | `sudo apt install openjdk-21-jdk` |
-| Install (Windows) | `winget install EclipseAdoptium.Temurin.21.JDK` |
-| Verify version | `java -version` and `javac -version` |
-| Open | `jshell` — the interactive Java REPL |
+| Install | `npm i -D cypress` |
+| Scaffold config | `npx cypress open` and pick E2E or Component on first launch |
+| Verify version | `npx cypress version` |
+| Verify install | `npx cypress verify` |
+| Open | `npx cypress open` — the interactive Test Runner |
 
-If `java -version` works but `javac -version` does not, you have a JRE rather
-than a JDK, or `JAVA_HOME` points at the wrong install.
+`npx cypress info` prints the detected browsers and the binary cache location,
+which is the first thing to check when a browser is missing.
 
-### Java Commands (JDK tools)
+### Cypress Run Commands
 
 | Command | Purpose |
 |---|---|
-| `java <MainClass>` | Run a compiled class with a `main` method |
-| `java -jar app.jar` | Run an executable JAR |
-| `java Main.java` | Compile and run a single source file directly (Java 11+) |
-| `java -version` | Show the installed Java version |
-| `java -cp <path> <Class>` | Run with a specific classpath |
-| `java -D<key>=<value> ...` | Pass a system property to the program |
-| `java -Xmx512m ...` | Set max heap size (memory) |
-| `javac <File>.java` | Compile a source file to `.class` bytecode |
-| `javac -d out src/*.java` | Compile into an output directory |
-| `javac -cp <path> <File>.java` | Compile against a classpath |
-| `jar cf app.jar *.class` | Create a JAR from class files |
-| `jar cfe app.jar Main *.class` | Create an executable JAR with a main class (entry point) |
-| `jar tf app.jar` | List the contents of a JAR |
-| `jar xf app.jar` | Extract a JAR |
-| `javadoc <File>.java` | Generate HTML API documentation |
-| `jshell` | Open the interactive Java REPL |
-| `jps` | List running Java processes |
-| `jstack <pid>` | Print a thread dump for a running process |
-| `keytool -list -keystore <file>` | Manage keys/certificates (SSL testing) |
+| `npx cypress open` | Open the interactive Test Runner |
+| `npx cypress open --e2e` | Open straight into E2E testing |
+| `npx cypress open --component` | Open straight into component testing |
+| `npx cypress run` | Run all specs headlessly |
+| `npx cypress run --spec "cypress/e2e/login.cy.js"` | Run one spec, or a glob |
+| `npx cypress run --browser chrome` | Pick a browser: `chrome`, `edge`, `firefox`, `electron` |
+| `npx cypress run --headed` | Run with the browser visible |
+| `npx cypress run --no-exit` | Leave the browser open after the run finishes |
+| `npx cypress run --record --key <key>` | Record the run to Cypress Cloud |
+| `npx cypress run --parallel --record --key <key>` | Split specs across CI machines |
+| `npx cypress run --config video=false` | Override config values inline |
+| `npx cypress run --config-file <file>` | Use a different config file |
+| `npx cypress run --env user=admin` | Pass environment values into tests |
+| `npx cypress run --reporter junit` | Choose a reporter |
+| `npx cypress run --quiet` | Suppress the Cypress banner output |
+
+### Cypress Cache and Setup
+
+| Command | Purpose |
+|---|---|
+| `npx cypress install` | Install the binary matching the package version |
+| `npx cypress install --force` | Reinstall the binary |
+| `npx cypress verify` | Check the installed binary actually runs |
+| `npx cypress info` | Show detected browsers, proxy settings, and cache path |
+| `npx cypress cache path` | Print the binary cache location |
+| `npx cypress cache list` | List cached binary versions |
+| `npx cypress cache prune` | Delete all cached versions except the current one |
+| `npx cypress cache clear` | Delete every cached binary |
 
 ## Playwright
 
@@ -489,6 +642,59 @@ For Node.
 | `npx cucumber-js --retry <n>` | Retry failing scenarios |
 | `npx cucumber-js --fail-fast` | Stop on first failure |
 | `npx cucumber-js --require <path>` | Load support and step files |
+
+## MySQL
+
+### Install MySQL
+
+| Step | Command |
+|---|---|
+| Install (Windows) | `choco install mysql`, or the MySQL Installer |
+| Install (macOS) | `brew install mysql` |
+| Install (Debian/Ubuntu) | `sudo apt install mysql-server` |
+| Verify version | `mysql --version` |
+| Open | `mysql -u root -p` — the client shell |
+| Open (GUI) | MySQL Workbench, or `mysqlsh` for MySQL Shell |
+
+Start the server first: `net start MySQL80` on Windows, `brew services start
+mysql` on macOS, `sudo systemctl start mysql` on Linux.
+
+### MySQL CLI Commands
+
+| Command | Purpose |
+|---|---|
+| `mysql -u <user> -p` | Connect, prompting for the password |
+| `mysql -u root -p -h 127.0.0.1 -P 3306` | Connect to a specific host and port |
+| `mysql -u root -p <db>` | Connect straight into one database |
+| `mysql -u root -p -e "SHOW DATABASES;"` | Run a single statement and exit |
+| `mysql -u root -p <db> < script.sql` | Run a script file against a database |
+| `mysqldump -u root -p <db> > backup.sql` | Dump one database to a file |
+| `mysqldump -u root -p --all-databases > all.sql` | Dump everything |
+| `mysqldump -u root -p --no-data <db> > schema.sql` | Dump the schema without rows |
+| `mysqladmin -u root -p ping` | Check whether the server is alive |
+| `mysqladmin -u root -p status` | Show uptime, threads, and query counts |
+| `mysqladmin -u root -p shutdown` | Stop the server |
+
+Never put the password in the command (`-pMyPass`) — it lands in shell history
+and in `tasklist`. Leave `-p` bare and type it at the prompt, or use a
+`.mylogin.cnf` created with `mysql_config_editor`.
+
+### Inside the mysql Shell
+
+| Command | Purpose |
+|---|---|
+| `SHOW DATABASES;` | List databases |
+| `USE <db>;` | Switch to a database |
+| `SHOW TABLES;` | List tables in the current database |
+| `DESCRIBE <table>;` | Show a table's columns and types |
+| `SHOW CREATE TABLE <table>;` | Show the full DDL |
+| `SELECT * FROM <table> LIMIT 10;` | Peek at some rows |
+| `SOURCE script.sql;` | Run a script file from inside the shell |
+| `SHOW PROCESSLIST;` | See what queries are currently running |
+| `SELECT VERSION();` | Server version |
+| `status` | Connection, charset, and uptime info |
+| `SELECT * FROM <table>\G` | Vertical output — readable for wide tables |
+| `exit` or `\q` | Leave the shell |
 
 ## Everyday Commands
 
