@@ -234,6 +234,9 @@ Jenkins - Web																In case multiple JDK installed
 3. Navigate to: http://localhost:8080/login?from=%2F
 4. Enter Secrets-Key: 6fa5fc0d50824f98877f13056bd0f36a
 
+	Solution 2: Run directly using JDK 21 Path (Quick Workaround)
+	"%JAVA_HOME%\bin\java.exe" -jar jenkins.war     |      "C:\Program Files\Java\jdk-21.0.12\bin\java.exe" -jar jenkins.war
+	
 JDK 17[JAVA_HOME: C:\Program Files\Java\jdk-17] issue: "C:\Program Files\Java\jdk-17\bin\java.exe" -jar jenkins.war
 	
 Jenkins - Manually Start
